@@ -1,0 +1,178 @@
+﻿{
+	"misc": {
+		"conditions":[
+			{
+				"id": "supportArraybuffer",
+				"scriptName": "supportArraybuffer",
+				"isInvertible": true,
+				"isTrigger": false
+			},
+			{
+				"id":"supportuint8array",
+				"scriptName": "supportuint8array",
+				"isInvertible": true,
+				"isTrigger": false
+			},
+			{
+				"id":"supportBlob",
+				"scriptName": "supportBlob",
+				"isInvertible": true,
+				"isTrigger": false
+			},
+			{
+				"id":"supportnodebuffer",
+				"scriptName": "supportnodebuffer",
+				"isInvertible": true,
+				"isTrigger": false
+			},
+			{
+				"id":"supportnodestream",
+				"scriptName": "supportnodestream",
+				"isInvertible": true,
+				"isTrigger": false
+			}
+		],
+		"actions":[
+
+		],
+		"expressions":[
+			{
+				"id": "getjsZipVersion",
+				"expressionName": "getjsZipVersion",
+				"returnType": "string"
+			}
+		]
+	},
+	"setup": {
+		"conditions":
+		[
+			{
+				"id": "zipIsLoaded",
+				"scriptName": "zipIsLoaded",
+				"highlight": false,
+				"isInvertible": false,
+				"isTrigger": true
+			},
+			{
+				"id": "zipLoadFailed",
+				"scriptName": "zipLoadFailed",
+				"highlight": false,
+				"isInvertible": false,
+				"isTrigger": true
+			}
+		],
+		"actions": [
+			{
+				"id": "jsloadzipurl",
+				"scriptName": "jsloadzipurl",
+				"highlight": true,
+				"params":
+				[
+					{"id": "zipurl", "type": "string", "initialValue": "\"\""}
+				]
+			},
+			{
+				"id": "jsdeletezip",
+				"scriptName": "jsdeletezip",
+				"highlight": true
+			}	
+		],
+		"expressions": []
+	},
+	"unzip":
+	{
+		"conditions":
+		[
+			{
+				"id": "zipIsFileLoaded",
+				"scriptName": "zipIsFileLoaded",
+				"highlight": false,
+				"isInvertible": false,
+				"isTrigger": true
+			}	
+		],
+		"actions":
+		[
+			{
+				"id": "jsloadfile",
+				"scriptName": "jsloadfile",
+				"highlight": true,
+				"params":
+				[
+					{"id": "filename", "type": "string", "initialValue": "\"\""},
+					{"id": "getType", "type": "combo", "items": ["b64","str","uint8array","blob","arraybuffer","array","nodebuffer"], "initialValue": "str"}
+				]
+			}
+		],
+		"expressions":
+		[
+			{
+				"id": "getZipLoadErrorMsg",
+				"expressionName": "getZipLoadErrorMsg",
+				"returnType": "string"
+			},
+			{
+				"id": "getResult",
+				"expressionName": "getResult",
+				"returnType": "any"
+			}
+		]
+	},
+	"zip":
+	{
+		"conditions":
+		[
+			{
+				"id": "zipisnowbase64",
+				"scriptName": "zipisnowbase64",
+				"highlight": false,
+				"isInvertible": false,
+				"isTrigger": true
+			}	
+		],
+		"actions":
+		[
+			{
+				"id": "jscreatezip",
+				"scriptName": "jscreatezip",
+				"highlight": true
+			},
+			{
+				"id": "jsaddtexttozip",
+				"scriptName": "jsaddtexttozip",
+				"highlight": true,
+				"params":
+				[
+					{"id": "data", "type": "string", "initialValue": "\"\""},
+					{"id": "filename", "type": "string", "initialValue": "\"\""}
+				]
+			},
+			{
+				"id": "jsaddfolder",
+				"scriptName": "jsaddfolder",
+				"highlight": true,
+				"params":
+				[
+					{"id": "folder", "type": "string", "initialValue": "\"\""}
+				]
+			},
+			{
+				"id": "jsgetdatafromzip",
+				"scriptName": "jsgetdatafromzip",
+				"highlight": true,
+				"params":
+				[
+					{"id": "getType", "type": "combo", "items": ["base64","binary"], "initialValue": "base64"}
+				]
+			}
+		],
+		"expressions":
+		[
+			{
+				"id": "getZipData",
+				"expressionName": "getZipData",
+				"returnType": "string"
+			}
+		]
+	}
+}

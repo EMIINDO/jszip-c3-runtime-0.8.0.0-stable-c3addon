@@ -1,0 +1,178 @@
+﻿{
+	"languageTag": "en-US",
+	"fileDescription": "jsZip Plugin.",
+	"text": {
+		"plugins": {
+			"massive_cube_jszip": {
+				"name": "jsZip",
+				"description": "Unzip files",
+				"help-url": "https://www.massive-cube.com/community",
+				"properties": {
+					
+				},
+				"aceCategories": {
+					"unzip": "Unzip",
+					"setup": "Setup",
+					"misc": "Misc",
+					"zip": "Zip"
+				},
+				"conditions": {
+					"zipIsLoaded": {
+						"list-name":"Zipfile successfully loaded",
+						"display-text":"Zipfile successfully loaded",
+						"description":"Zipfile is successfully loaded"
+					},
+					"zipLoadFailed": {
+						"list-name":"Zipfile failed to load",
+						"display-text":"Zipfile failed to load",
+						"description":"Zipfile failed to load"
+					},
+					"zipIsFileLoaded": {
+							"list-name":"File from zip successfully loaded",
+							"display-text":"File from zip successfully loaded",
+							"description":"File from zip successfully loaded"
+					},
+					"supportArraybuffer": {
+							"list-name":"Browser support ArrayBuffer?",
+							"display-text":"Browser support ArrayBuffer?",
+							"description":"Browser support ArrayBuffer?"
+					},
+					"supportuint8array": {
+							"list-name":"Browser support uint8array?",
+							"display-text":"Browser support uint8array?",
+							"description":"Browser support uint8array?"
+					},
+					"supportBlob": {
+							"list-name":"Browser support blob?",
+							"display-text":"Browser support blob?",
+							"description":"Browser support binary large objects?"
+					},
+					"supportnodestream": {
+							"list-name":"Browser support nodestream?",
+							"display-text":"Browser support nodestream?",
+							"description":"Browser support nodestream?"
+					},
+					"supportnodebuffer": {
+							"list-name":"Browser support supportnodebuffer?",
+							"display-text":"Browser support supportnodebuffer?",
+							"description":"Browser support supportnodebuffer?"
+					},
+					"zipisnowbase64": {
+							"list-name":"Zipfile is successfully converted to base64-file",
+							"display-text":"Zipfile is successfully converted to base64-file",
+							"description":"Zipfile is successfully converted to base64-file"
+					}
+
+				},
+				"actions": {
+					"jsloadzipurl": {
+						"list-name":"Load zipfile from URL",
+						"display-text":"Load zipfile from {0}",
+						"description":"Load zipfile from URL",
+						"params": {
+							"zipurl": {
+								"name": "URL", 
+								"desc": "URL"
+							}
+						}
+						
+					},
+					"jsloadfile": {
+						"list-name":"Open file from Zip",
+						"display-text":"Open file {0} from Zip as {1}",
+						"description":"Open file from Zip",
+						"params": {
+							"filename": {
+								"name": "Filename", 
+								"desc": "Filename"
+							},
+							"getType": {
+								"name": "GetType", 
+								"desc": "Get the file as base64, raw string, uint8array, arraybuffer, blob, array or nodebuffer",
+								"items": {
+									"b64": "base64",
+									"str": "string",
+									"uint8array":"uint8array",
+									"blob":"blob",
+									"arraybuffer":"arraybuffer",
+									"array":"array",
+									"nodebuffer":"nodebuffer (Only for node.js)"
+								}
+							}
+						}
+						
+					},
+					"jsdeletezip": {
+						"list-name":"Delete Zipfile",
+						"display-text":"Delete Zipfile",
+						"description":"Delete loaded Zipfile"
+					},
+					"jscreatezip": {
+						"list-name":"Create Zipfile",
+						"display-text":"Create Zipfile",
+						"description":"Create new Zipfile"
+					},
+					"jsaddtexttozip": {
+						"list-name":"Add file to zip",
+						"display-text":"Add Text {0} to Zip as File {1}",
+						"description":"Add file to zip",
+						"params": {
+							"data": {
+								"name": "data", 
+								"desc": "data"
+							},
+							"filename": {
+								"name": "filename", 
+								"desc": "filename"
+							}
+						}
+					},
+					"jsaddfolder": {
+						"list-name":"Add folder to Zip",
+						"display-text":"Add folder {0} to Zip",
+						"description":"Add folder to Zip",
+						"params": {
+							"folder": {
+								"name": "folder", 
+								"desc": "folder"
+							}
+						}
+					},
+					"jsgetdatafromzip": {
+						"list-name":"Get zipdata",
+						"display-text":"Get zip as {0}",
+						"description":"Get zipdata",
+						"params": {
+							"getType": {
+								"name": "GetType", 
+								"desc": "Get the file as base64 or binary",
+								"items": {
+									"base64": "base64",
+									"binary": "binary"
+								}
+							}
+						}
+					}
+				},
+				"expressions": {
+					"getZipLoadErrorMsg": {
+						"description":"Get ErrorMessage",
+						"translated-name":"Get ErrorMessage"
+					},
+					"getjsZipVersion":{
+						"description":"Get the jsZip Version",
+						"translated-name":"Get the jsZip Version"
+					},
+					"getResult": {
+						"description":"Get file as base64, string etc.",
+						"translated-name":"Get file as base64, string etc."
+					},
+					"getZipData": {
+						"description":"Get Zipfile as base64-string or binary",
+						"translated-name":"Get Zipfile as base64-string or binary"
+					}
+				}
+			}
+		}
+	}
+}
